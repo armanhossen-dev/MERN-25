@@ -1,0 +1,40 @@
+https://github.com/nvm-sh/nvm
+
+https://youtu.be/D53lAvrio0E
+
+https://v2-dev.interactivecares.com/
+https://lucide.dev/icons/
+
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+javascript ses kor te hoi bo bro - https://www.w3schools.com/js/default.asp
+
+nvm use kora sikbe
+
+call back help?
+prototype chaingin?
+promises?
+JavaScript Async?
+Event loop?
+
+array and object manupulation in java or by java
+let , const kotai user
+type sike nibo string number
+
+object er value and peach ki vabe neya jabe and use kora egula jana tak te hobe
+
+css : map filter , find , sum every,  ver, string, closer, microtask, 
+
+https://javascript.info/
+
+html , css, {{{{{{js must}}}}}}
+react sur kor be next din
+
+
+Next Tasks: 
+1. Basic JavaScript
+2. Basic HTML & CSS(Flex, Grid, Layout)
+3. Basic React (State management)
+
+https://www.figma.com/design/is3KM44uHAxDSzwxNLev2H/Narratica---Blog-Landing-Page--Community-?node-id=0-1&p=f
+2 number task, 
