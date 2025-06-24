@@ -3,21 +3,24 @@
     margin: 0;
     padding: 0;
 }
+
 body{
     background-color: #7c7b7b;
 }
 
 .menubar{
-    margin: 0 auto;
-    border-radius: 5px;
-    width: 80%;
-    height: 50px;
     display: flex;
-    
-    padding-left: 5px;
     align-items: center;
+    padding-left: 5px;
+    margin: 0 auto;
     background-color: white;
-    margin-top: 10px;
+    border-radius: 5px;
+    width: 90%;
+    height: 50px;
+    /* margin-top: 10px; */
+    margin: 10px auto;
+    /* box-shadow: 0 2px 5px rgba(0,0,0,0.1); */
+    transition: all 0.35s ease;
 }
 
 .menuLogo{
@@ -28,7 +31,12 @@ body{
 
 .menuUL{
     display: flex;
-    justify-content: left;
+    
+    /* for rspn */
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin: 0;
+
 }
 
 .menuUL a{
@@ -37,12 +45,12 @@ body{
     list-style-type: none;
     padding: 20px;
     text-transform: uppercase;
-    font-weight: 550;
+    font-weight: 500;
     transition: all .2s ease;
 }
 
 .menuUL a li{
-    font-size: 12px;
+    font-size: 15px;
 }
 
 .menuUL a:hover{
@@ -50,11 +58,9 @@ body{
     scale: 1.056;    
 }
 
-
 .search{
     position: relative;
     right: 10px;
-    left: auto;
 }
 
 .search_icon{
@@ -73,16 +79,129 @@ body{
     border: .2px solid black;
 }
 
-
-.nvbtn{
-    padding: 5px 5px 5px 5px;
-    border-radius: 100%;
-    margin: 10px;
-    background-color: #f8ab8c;
-    border: none;
+.right-end {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Pushes it to the right */
 }
 
-.nvbtn i {
-    font-size: medium;
-    color: black;
+.close-sidebar-button,
+.open-sidebar-button{
+    margin: 10px;
+    /* padding: 10px 12px; */
+    padding: 10px 12px;
+    font-size: 15px;
+    border-radius: 50%;
+    background-color: #f8ab8c;
+    border: none;
+    font-size: 15px;
+}
+
+.close-sidebar-button{
+    margin: 0 20px 0 auto;
+    display: none;
+}
+
+#sidebar-active{
+    display: none;
+}
+
+.open-sidebar-button{
+    display: flex;
+}
+
+/* making it responvie for phone or smaller display  */ 
+@media screen and (max-width: 1210px) {
+    .menuUL {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 40%;
+        height: 100vh;
+        z-index: 100;
+        background-color: var(--color-1);
+        box-shadow: -5px 0 5px rgba(0,0,0,0.25);
+        backdrop-filter: blur(10px);
+        transition: right 0.75s ease-out;
+        padding: 20px 0;
+        overflow-y: auto;
+    }
+
+    .menuUL a {
+        box-sizing: border-box;
+        height: auto;
+        width: 100%;
+        padding: 20px 30px;
+        justify-content: flex-start;
+        border-radius: 0;
+        display: flex;
+    }
+
+    .searchMenu {
+        width: 120px;
+    }
+    .close-sidebar-button{
+         padding: 10px 15px;
+         font-size: 19px;
+    }
+
+    .close-sidebar-button,
+    .open-sidebar-button {
+        display: block;
+
+    }
+
+    /* Change hamburger to X when menu is open */
+    #sidebar-active:checked ~ .right-end .open-sidebar-button i:before {
+        content: "\f00d"; /* fa-xmark unicode */
+    }
+
+    /* When checkbox is checked, show the menu */
+    #sidebar-active:checked ~ .menuUL {
+        display: flex;
+        right: 0;
+    }
+
+    /* Overlay when menu is open */
+    #sidebar-active:checked ~ #overlay {
+        display: block;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 50;
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menuUL {
+        width: 70%;
+    }
+    
+    .searchMenu {
+        width: 100px;
+    }
+
+    .menubar {
+        padding: 10px 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menuUL {
+        width: 80%;
+    }
+    
+    .search {
+        padding: 6px 12px;
+    }
+    
+    .searchMenu {
+        width: 80px;
+    }
 }

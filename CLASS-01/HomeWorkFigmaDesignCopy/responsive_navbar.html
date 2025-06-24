@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Responsive Navbar</title>
+<style>
+  /* Navbar container */
+  nav.menubar {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    width: 90%;
+    margin: 10px auto;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+  }
+
+  /* Logo */
+  .menuLogo {
+    height: 35px;
+  }
+
+  /* Menu links */
+  .menuUL {
+    list-style: none;
+    display: flex;
+    margin-left: 20px;
+    padding-left: 0;
+    flex-grow: 1;
+  }
+  .menuUL li {
+    margin-right: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .menuUL li a {
+    text-decoration: none;
+    color: black;
+    transition: color 0.2s ease;
+  }
+  .menuUL li a:hover {
+    color: #f20303;
+  }
+
+  /* Hamburger button */
+  .nvbtn {
+    display: none;
+    background-color: #f8ab8c;
+    border: none;
+    border-radius: 50%;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  .nvbtn i {
+    font-size: 18px;
+    color: black;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .menuUL {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      margin: 10px 0 0 0;
+    }
+    .menuUL.show {
+      display: flex;
+    }
+    .menuUL li {
+      margin: 10px 0;
+    }
+    .nvbtn {
+      display: inline-block;
+      margin-left: auto;
+    }
+  }
+</style>
+</head>
+<body>
+
+<nav class="menubar">
+  <a href="./"><img class="menuLogo" src="imgs/menulogo.png" alt="logo" /></a>
+
+  <ul class="menuUL">
+    <li><a href="./">Business</a></li>
+    <li><a href="./">Health News</a></li>
+    <li><a href="./">World News</a></li>
+    <li><a href="./">Sports</a></li>
+    <li><a href="./">Culture</a></li>
+    <li><a href="./">Subscribe</a></li>
+    <li><a href="./">Cart (<span>0</span>)</a></li>
+  </ul>
+
+  <button class="nvbtn" aria-label="Toggle menu">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+</nav>
+
+<script>
+  const toggleBtn = document.querySelector('.nvbtn');
+  const menuUL = document.querySelector('.menuUL');
+
+  toggleBtn.addEventListener('click', () => {
+    menuUL.classList.toggle('show');
+  });
+</script>
+
+<!-- Font Awesome CDN for icons (if not already included) -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
