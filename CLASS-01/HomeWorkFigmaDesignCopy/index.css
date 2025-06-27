@@ -102,7 +102,7 @@ body{
 }
 
 /* making it responvie for phone or smaller display  */ 
-@media screen and (max-width: 1210px) {
+@media screen and (max-width: 1080px) {
     .menuUL a:hover{
         background-color: rgba(0, 0, 0, 0.665);
         /* color: white; */
@@ -114,11 +114,11 @@ body{
         position: fixed;
         top: 0;
         right: -100%;
-        width: 40%;
-        height: 100vh;
+        width: 40vw;
+        height: 100%;
         z-index: 100;
         box-shadow: -5px 0 5px rgba(0,0,0,0.25);
-        backdrop-filter: blur(10px);
+        /* backdrop-filter: blur(10px); */
         transition: right 0.75s ease-out;
         padding: 20px 0;
         overflow-y: auto;
@@ -128,10 +128,11 @@ body{
     .menuUL a {
         box-sizing: border-box;
         height: auto;
-        width: 100%;
-        padding: 20px 30px;
+        width: 70%;
+        padding: 20px 20px;
+        font-size: 18px;
         justify-content: flex-start;
-        border-radius: 0;
+        /* border-radius: 0; */
         display: flex;
     }
     
@@ -157,7 +158,7 @@ body{
     /* When checkbox is checked, show the menu */
     #sidebar-active:checked ~ .menuUL {
         display: flex;
-        right: 0;
+        right: 0px;
     }
     
     /* Overlay when menu is open */
@@ -214,7 +215,9 @@ body{
     position: relative;
     width: 1000px;
     left: 60px;
-    padding: 20px;
+    padding: 10px;
+    margin: 20px;
+    /* transition: all .43s ease; */
 }
 
 .leftSideHome img{
@@ -224,6 +227,7 @@ body{
     position: relative;
     margin-bottom: 8px;
 }
+
 .leftSideHome p{
     font-size: 2.5em;
     font-weight: 600;
@@ -238,11 +242,34 @@ body{
 }
 
 .box_note_icon{
-    /* width: 200px; */
-    background: #6e41e8;
+    width: 200px;
     align-items: center;
-    padding: 5px;
+    padding: 4px;
     border-radius: 5px;
+}
+
+.bni0{
+    background: #6e41e8; 
+}
+
+.bni1{
+    background: #e3c034; 
+}
+
+.bni2{
+    background: #e74c3c
+    ; 
+}
+.bni3{
+    background: #38ade8; 
+}
+
+.bni4{
+    background: #32d255; 
+}
+
+.bni5{
+    background: #e8493a; 
 }
 
 
@@ -252,11 +279,12 @@ body{
 .fa-user-check,
 .fa-user-doctor,
 .fa-microchip{
-    font-size: 18px;
+    font-size: 17px;
     padding: 5px;
     padding-left: 7px;
     color: white;
 }
+
 .boxtext{
     color: white;
     font-size: 16px;
@@ -271,19 +299,27 @@ body{
     text-transform: uppercase;
 }
 
+
+.dis{
+    display: none;
+    margin: 0 6%;
+}
+
 .rightSideHome{
     display: flex;
     flex-direction: column;
     position: relative;
-    padding-left: 20px;
+    padding-left: 60px;
     padding-right: 100px;
-    margin: 25px 51px 40px;
+    margin: 30px auto 40px;
+    /* background-color: #32d255; */
 }
 
 
 .h333{
-    font-size: 23px;
-    font-weight: 600;
+    /* background-color: #e02424; */
+    font-size: 20px;
+    font-weight: 500;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -291,7 +327,232 @@ body{
 .note_icon_date hr{
     margin-top: 20px;
     margin-bottom: 40px;
-    opacity: .5;
+    opacity: .5;    
+}
+
+/* responsive homepage start */
+
+@media screen and (max-width: 1780px) {
+    .leftSideHome{
+        width: 950px;
+        left: 45px;
+        padding: 7px;
+        margin: 20px;        
+    }
+    
+    .leftSideHome img{
+        width: 900px;
+    }
+    
+    .leftSideHome p{
+        font-size: 2em;
+        font-weight: 600;
+        padding: 10px;
+        margin-bottom: 30px;
+    }
+
+    
+    .rightSideHome{
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* position: relative; */
+        padding-left: 20px;
+        /* padding-right: 100px; */
+        margin: 30px 20px 40px;
+        /* background-color: #32d255; */
+    }
+    
+    .h333{
+        /* background-color: #e02424; */
+        font-size: 18px;
+        /* font-weight: 500; */
+        /* margin-top: 20px; */
+        margin-bottom: 18px;
+    }
+    
+    .note_icon_date hr{
+        /* margin-top: 20px; */
+        margin-bottom: 35px;
+        /* opacity: .5; */
+    }
     
 }
 
+@media screen and (max-width: 1560px) {
+    .leftSideHome{
+        width: 850px;
+        left: 40px;
+        /* padding: 7px; */
+        /* margin: 20px;         */
+    }
+    
+    .leftSideHome img{
+        width: 800px;
+    }
+    
+    .leftSideHome p{
+        font-size: 1.8em;
+        /* font-weight: 600; */
+        /* padding: 10px; */
+        /* margin-bottom: 30px; */
+    }
+    
+    
+    .rightSideHome{
+        margin-left: 50px;
+        /* padding-right: 100px; */
+        margin: 35px auto 40px;
+        /* background-color: #32d255; */
+    }
+    
+    .h333{
+        /* background-color: #38ade8; */
+        font-size: 18px;
+        /* font-weight: 500; */
+        /* margin-top: 20px; */
+        margin-bottom: 18px;
+    }
+}
+
+@media screen and (max-width: 1400px) {
+    .leftSideHome{
+        width: 750px;
+        left: 40px;
+    }
+    
+    .leftSideHome img{
+        width: 700px;
+    }
+
+    .leftSideHome p{
+        font-size: 1.8em;
+    }
+    
+    
+    .rightSideHome{
+        margin-left: 50px;
+        margin: 35px auto 40px;
+    }
+    
+    .h333{
+        /* background-color: #38ade8; */
+        font-size: 18px;
+        margin-bottom: 18px;
+    }
+    
+    .date{
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .leftSideHome{
+        width: 700px;
+        left: 25px;
+    }
+    
+    .leftSideHome img{
+        width: 650px;
+    }
+
+    .rightSideHome{
+        margin-left: 50px;
+        margin: 35px auto 40px;
+    }
+    
+    .h333{
+        /* background-color: #38ade8; */
+        font-size: 18px;
+        margin-bottom: 18px;
+    }
+}
+
+/* 1280 */
+@media screen and (max-width: 1280px) {
+    .homepage {
+        flex-direction: column;
+    }
+    
+    .leftSideHome{
+        width: 90%;
+        left: 15px;
+    }   
+    .rightSideHome{
+        width: 80%;
+    }
+    .leftSideHome img{
+        width:100%
+    }
+    
+    .leftSideHome p{
+        width: 90%
+        
+    }
+}
+
+
+@media screen and (max-width: 1050px) {
+    .leftSideHome p{
+        font-size: 19px;
+    }
+
+    .leftSideHome{
+        justify-content: center;
+        align-items: center;  
+        margin: 0px;
+        padding: 10px;      
+    } 
+
+    .search{
+        display: none;
+    }
+
+    .dis{
+        margin-top: 20px;
+        display: flex;
+    }
+
+    .leftSideHome img{
+        margin: 0px;
+        padding: 0px;
+    }
+}
+/* responsive homepage end */
+
+
+
+
+
+/* ################################# */
+/* homePage2 */
+.homePage2{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.minicards{    
+    width: 80%;
+    /* height: 370px; */
+    /* padding: 30px; */
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    background-color: #e74c3c;
+}
+
+.mbox{
+    position: relative;
+    overflow: hidden;
+    width: 330px;
+    height: 370px;
+    background-color: #38ade8;
+}
+
+/* 
+    
+*/
