@@ -17,7 +17,7 @@ body{
     margin: 0 auto;
     background-color: #ffffff;
     border-radius: 5px;
-    width: 90%;
+    width: 80%;
     height: 50px;
     margin: 10px auto;
     transition: all 0.35s ease;
@@ -177,11 +177,9 @@ body{
     .menuUL {
         width: 70%;
     }
-    
     .searchMenu {
         width: 100px;
     }
-    
     .menubar {
         padding: 10px 15px;
     }
@@ -206,46 +204,94 @@ body{
 .homepage{
     display: flex;
     width: 90%;
-    height: 100vh;
-}
-.leftSidePhoto img{
-    width: 900px;
-    margin-left: 10px;
-    border-radius: 8px;
-    position: relative;
-    margin-bottom: 8px;
+    height: 90vh;
+    margin: auto;
+    justify-content: space-between;
+    /* background-color:yellow; */
 }
 
-.leftSidePhoto p{
-    font-size: 2.5rem;
-    font-weight: 600;
-    padding: 10px;
-}
-
-.leftSidePhoto{
+.leftSideHome{
     position: relative;
     width: 1000px;
     left: 60px;
     padding: 20px;
 }
 
+.leftSideHome img{
+    width: 950px;
+    margin-left: 10px;
+    border-radius: 8px;
+    position: relative;
+    margin-bottom: 8px;
+}
+.leftSideHome p{
+    font-size: 2.5em;
+    font-weight: 600;
+    padding: 10px;
+    margin-bottom: 32px;
+}
 
 .note_icon_date{
+    position: relative;
+    left: 10px;
     width: 380px;
 }
 
 .box_note_icon{
-    width: 200px;
-    background: rgb(204, 12, 242);
+    /* width: 200px; */
+    background: #6e41e8;
     align-items: center;
+    padding: 5px;
+    border-radius: 5px;
 }
 
-.fa-globe{
-    font-size: 25px;
+
+/* icons color  */
+.fa-globe,
+.fa-briefcase,
+.fa-user-check,
+.fa-user-doctor,
+.fa-microchip{
+    font-size: 18px;
     padding: 5px;
+    padding-left: 7px;
+    color: white;
 }
 .boxtext{
-    font-size: 20px;
+    color: white;
+    font-size: 16px;
     font-weight: 500;
     align-items: center;
 }
+
+.date{
+    font-size: 18px;
+    margin-left: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.rightSideHome{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-left: 20px;
+    padding-right: 100px;
+    margin: 25px 51px 40px;
+}
+
+
+.h333{
+    font-size: 23px;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.note_icon_date hr{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    opacity: .5;
+    
+}
+
