@@ -1,0 +1,957 @@
+Java Classes with Relationships
+
+One-to-One Relationships (33 Examples)
+1. User & UserProfile
+class User {
+    private Long userId;
+    private String username;
+    private String email;
+    private UserProfile profile;
+    
+    public void updateEmail(String newEmail) { this.email = newEmail; }
+    public boolean isActive() { return profile != null && profile.isActive(); }
+}
+
+class UserProfile {
+    private Long profileId;
+    private String firstName;
+    private String lastName;
+    private Date birthDate;
+    private boolean active;
+    
+    public void updateName(String first, String last) { this.firstName = first; this.lastName = last; }
+    public int getAge() { return calculateAge(birthDate); }
+}
+
+2. Employee & EmployeeDetails
+class Employee {
+    private Long empId;
+    private String empCode;
+    private String department;
+    private EmployeeDetails details;
+    
+    public void assignDepartment(String dept) { this.department = dept; }
+    public String getFullInfo() { return empCode + " - " + department; }
+}
+
+class EmployeeDetails {
+    private Long detailId;
+    private String address;
+    private String phoneNumber;
+    private String emergencyContact;
+    
+    public void updateAddress(String newAddress) { this.address = newAddress; }
+    public boolean hasEmergencyContact() { return emergencyContact != null; }
+}
+
+3. Product & ProductSpecification
+class Product {
+    private Long productId;
+    private String name;
+    private BigDecimal price;
+    private ProductSpecification specification;
+    
+    public void updatePrice(BigDecimal newPrice) { this.price = newPrice; }
+    public boolean isAvailable() { return specification.getStock() > 0; }
+}
+
+class ProductSpecification {
+    private Long specId;
+    private String dimensions;
+    private String weight;
+    private int stock;
+    
+    public void updateStock(int newStock) { this.stock = newStock; }
+    public String getPhysicalInfo() { return dimensions + ", " + weight; }
+}
+
+4. Order & OrderSummary
+class Order {
+    private Long orderId;
+    private Date orderDate;
+    private String status;
+    private OrderSummary summary;
+    
+    public void updateStatus(String newStatus) { this.status = newStatus; }
+    public boolean isCompleted() { return "COMPLETED".equals(status); }
+}
+
+class OrderSummary {
+    private Long summaryId;
+    private BigDecimal totalAmount;
+    private int itemCount;
+    private String paymentMethod;
+     public void recalculateTotal() { /* calculation logic */ }
+    public boolean isPaid() { return paymentMethod != null; }
+}
+5. Customer & CustomerPreferences
+class Customer {
+    private Long customerId;
+    private String email;
+    private String phone;
+    private CustomerPreferences preferences;
+    
+    public void updateContact(String newEmail, String newPhone) { this.email = newEmail;     this.phone = newPhone; }
+    public boolean hasPreferences() { return preferences != null; }
+}
+
+class CustomerPreferences {
+    private Long prefId;
+    private String language;
+    private String currency;
+    private boolean emailNotifications;
+    
+    public void toggleNotifications() { this.emailNotifications = !this.emailNotifications; }
+    public String getLocaleInfo() { return language + "_" + currency; }
+}
+
+6. Vehicle & VehicleRegistration
+class Vehicle {
+    private Long vehicleId;
+    private String make;
+    private String model;
+    private VehicleRegistration registration;
+    
+    public void updateModel(String newModel) { this.model = newModel; }
+    public boolean isRegistered() { return registration != null && registration.isValid(); }
+}
+
+class VehicleRegistration {
+    private Long regId;
+    private String licensePlate;
+    private Date registrationDate;
+    private Date expiryDate;
+    
+    public void renewRegistration(Date newExpiry) { this.expiryDate = newExpiry; }
+    public boolean isValid() { return expiryDate.after(new Date()); }
+}
+
+
+7. Account & AccountSettings
+class Account {
+    private Long accountId;
+    private String accountNumber;
+    private String accountType;
+    private AccountSettings settings;
+    
+    public void changeType(String newType) { this.accountType = newType; }
+    public boolean isActive() { return settings != null && settings.isEnabled(); }
+}
+
+class AccountSettings {
+    private Long settingsId;
+    private boolean enabled;
+    private String theme;
+    private String timezone;
+    
+    public void toggleAccount() { this.enabled = !this.enabled; }
+    public void updateTheme(String newTheme) { this.theme = newTheme; }
+}
+
+8. Document & DocumentMetadata
+class Document {
+    private Long docId;
+    private String title;
+    private String content;
+    private DocumentMetadata metadata;
+    
+    public void updateTitle(String newTitle) { this.title = newTitle; }
+    public int getContentLength() { return content != null ? content.length() : 0; }
+}
+
+class DocumentMetadata {
+    private Long metaId;
+    private String author;
+    private Date createdDate;
+    private String tags;
+    
+    public void addTag(String tag) { this.tags += "," + tag; }
+    public boolean isRecent() { return createdDate.after(getLastWeekDate()); }
+}
+
+
+
+9. Building & BuildingAddress
+class Building {
+    private Long buildingId;
+    private String name;
+    private String type;
+    private BuildingAddress address;
+    
+    public void updateName(String newName) { this.name = newName; }
+    public String getFullIdentifier() { return name + " (" + type + ")"; }
+}
+
+class BuildingAddress {
+    private Long addressId;
+    private String street;
+    private String city;
+    private String zipCode;
+    
+    public void updateAddress(String street, String city, String zip) { 
+        this.street = street; this.city = city; this.zipCode = zip; 
+    }
+    public String getFullAddress() { return street + ", " + city + " " + zipCode; }
+}
+
+10. Patient & MedicalRecord
+class Patient {
+    private Long patientId;
+    private String firstName;
+    private String lastName;
+    private MedicalRecord medicalRecord;
+    
+    public void updateName(String first, String last) { this.firstName = first; this.lastName = last; }
+    public String getFullName() { return firstName + " " + lastName; }
+}
+
+class MedicalRecord {
+    private Long recordId;
+    private String bloodType;
+    private String allergies;
+    private String medications;
+    
+    public void addAllergy(String allergy) { this.allergies += "," + allergy; }
+    public boolean hasAllergies() { return allergies != null && !allergies.isEmpty(); }
+}
+11. Student & StudentTranscript
+class Student {
+    private Long studentId;
+    private String studentNumber;
+    private String major;
+    private StudentTranscript transcript;
+    
+    public void changeMajor(String newMajor) { this.major = newMajor; }
+    public boolean hasTranscript() { return transcript != null; }
+}
+
+class StudentTranscript {
+    private Long transcriptId;
+    private Double gpa;
+    private int creditHours;
+    private String graduationStatus;
+    
+    public void updateGPA(Double newGPA) { this.gpa = newGPA; }
+    public boolean isEligibleForGraduation() { return creditHours >= 120 && gpa >= 2.0; }
+}
+
+12. Company & CompanyProfile
+class Company {
+    private Long companyId;
+    private String name;
+    private String industry;
+    private CompanyProfile profile;
+    
+    public void updateIndustry(String newIndustry) { this.industry = newIndustry; }
+    public boolean hasProfile() { return profile != null; }
+}
+
+class CompanyProfile {
+    private Long profileId;
+    private String description;
+    private String website;
+    private int employeeCount;
+    
+    public void updateEmployeeCount(int count) { this.employeeCount = count; }
+    public String getCompanySize() { return employeeCount > 1000 ? "Large" : "Small-Medium"; }
+}
+
+
+13. Invoice & InvoiceDetails
+class Invoice {
+    private Long invoiceId;
+    private String invoiceNumber;
+    private Date issueDate;
+    private InvoiceDetails details;
+    
+    public void updateIssueDate(Date newDate) { this.issueDate = newDate; }
+    public boolean isOverdue() { return details != null && details.getDueDate().before(new Date()); }
+}
+
+class InvoiceDetails {
+    private Long detailsId;
+    private BigDecimal amount;
+    private Date dueDate;
+    private String paymentTerms;
+    
+    public void updateAmount(BigDecimal newAmount) { this.amount = newAmount; }
+    public Date getDueDate() { return dueDate; }
+}
+
+14. Book & BookISBN
+class Book {
+    private Long bookId;
+    private String title;
+    private String author;
+    private BookISBN isbn;
+    
+    public void updateTitle(String newTitle) { this.title = newTitle; }
+    public String getBookInfo() { return title + " by " + author; }
+}
+
+class BookISBN {
+    private Long isbnId;
+    private String isbn10;
+    private String isbn13;
+    private String publisher;
+    
+    public void updateISBN(String isbn10, String isbn13) { this.isbn10 = isbn10; this.isbn13 = isbn13; }
+    public boolean isValidISBN() { return isbn13 != null && isbn13.length() == 13; }
+}
+
+15. Event & EventLocation
+class Event {
+    private Long eventId;
+    private String name;
+    private Date eventDate;
+    private EventLocation location;
+    
+    public void reschedule(Date newDate) { this.eventDate = newDate; }
+    public boolean hasLocation() { return location != null; }
+}
+
+class EventLocation {
+    private Long locationId;
+    private String venue;
+    private String address;
+    private int capacity;
+    
+    public void updateCapacity(int newCapacity) { this.capacity = newCapacity; }
+    public boolean canAccommodate(int attendees) { return attendees <= capacity; }
+}
+
+16. Project & ProjectBudget
+class Project {
+    private Long projectId;
+    private String name;
+    private String status;
+    private ProjectBudget budget;
+    
+    public void updateStatus(String newStatus) { this.status = newStatus; }
+    public boolean isActive() { return "ACTIVE".equals(status); }
+}
+
+class ProjectBudget {
+    private Long budgetId;
+    private BigDecimal allocatedAmount;
+    private BigDecimal spentAmount;
+    private String currency;
+    
+    public void recordExpense(BigDecimal expense) { this.spentAmount = this.spentAmount.add(expense); }
+    public BigDecimal getRemainingBudget() { return allocatedAmount.subtract(spentAmount); }
+}
+
+17. License & LicenseHolder
+class License {
+    private Long licenseId;
+    private String licenseNumber;
+    private String type;
+    private LicenseHolder holder;
+    
+    public void updateType(String newType) { this.type = newType; }
+    public boolean isValid() { return holder != null && holder.isActive(); }
+}
+
+class LicenseHolder {
+    private Long holderId;
+    private String name;
+    private Date issueDate;
+    private boolean active;
+    
+    public void deactivate() { this.active = false; }
+    public int getYearsSinceIssue() { return calculateYears(issueDate); }
+}
+
+18. Passport & PassportHolder
+class Passport {
+    private Long passportId;
+    private String passportNumber;
+    private String country;
+    private PassportHolder holder;
+    
+    public void updateCountry(String newCountry) { this.country = newCountry; }
+    public boolean belongsTo(String name) { return holder != null && holder.getName().equals(name); }
+}
+
+class PassportHolder {
+    private Long holderId;
+    private String name;
+    private Date birthDate;
+    private String nationality;
+    
+    public void updateNationality(String newNationality) { this.nationality = newNationality; }
+    public String getName() { return name; }
+}
+
+
+19. Website & WebsiteConfig
+class Website {
+    private Long websiteId;
+    private String domain;
+    private String title;
+    private WebsiteConfig config;
+    
+    public void updateTitle(String newTitle) { this.title = newTitle; }
+    public boolean isConfigured() { return config != null; }
+}
+
+class WebsiteConfig {
+    private Long configId;
+    private String theme;
+    private boolean maintenanceMode;
+    private String adminEmail;
+    
+    public void toggleMaintenance() { this.maintenanceMode = !this.maintenanceMode; }
+    public void updateTheme(String newTheme) { this.theme = newTheme; }
+}
+
+20. Restaurant & RestaurantLicense
+class Restaurant {
+    private Long restaurantId;
+    private String name;
+    private String cuisine;
+    private RestaurantLicense license;
+    
+    public void updateCuisine(String newCuisine) { this.cuisine = newCuisine; }
+    public boolean isLicensed() { return license != null && license.isValid(); }
+}
+
+class RestaurantLicense {
+    private Long licenseId;
+    private String licenseNumber;
+    private Date expiryDate;
+    private String authority;
+    
+    public void renew(Date newExpiry) { this.expiryDate = newExpiry; }
+    public boolean isValid() { return expiryDate.after(new Date()); }
+}
+
+
+
+21. BankAccount & AccountStatement
+class BankAccount {
+    private Long accountId;
+    private String accountNumber;
+    private BigDecimal balance;
+    private AccountStatement statement;
+    
+    public void deposit(BigDecimal amount) { this.balance = this.balance.add(amount); }
+    public boolean hasStatement() { return statement != null; }
+}
+
+class AccountStatement {
+    private Long statementId;
+    private Date statementDate;
+    private BigDecimal openingBalance;
+    private BigDecimal closingBalance;
+    
+    public void generateStatement() { this.statementDate = new Date(); }
+    public BigDecimal getBalanceDifference() { return closingBalance.subtract(openingBalance); }
+}
+
+22. Subscription & SubscriptionPlan
+class Subscription {
+    private Long subscriptionId;
+    private Date startDate;
+    private String status;
+    private SubscriptionPlan plan;
+    
+    public void cancel() { this.status = "CANCELLED"; }
+    public boolean isActive() { return "ACTIVE".equals(status); }
+}
+
+class SubscriptionPlan {
+    private Long planId;
+    private String name;
+    private BigDecimal price;
+    private String billingCycle;
+    
+    public void updatePrice(BigDecimal newPrice) { this.price = newPrice; }
+    public boolean isMonthly() { return "MONTHLY".equals(billingCycle); }
+}
+
+
+23. Insurance & InsurancePolicy
+class Insurance {
+    private Long insuranceId;
+    private String policyNumber;
+    private String type;
+    private InsurancePolicy policy;
+    
+    public void updateType(String newType) { this.type = newType; }
+    public boolean isPolicyActive() { return policy != null && policy.isActive(); }
+}
+
+class InsurancePolicy {
+    private Long policyId;
+    private BigDecimal coverage;
+    private Date expiryDate;
+    private boolean active;
+    
+    public void updateCoverage(BigDecimal newCoverage) { this.coverage = newCoverage; }
+    public boolean isActive() { return active && expiryDate.after(new Date()); }
+}
+
+24. Apartment & ApartmentLease
+class Apartment {
+    private Long apartmentId;
+    private String unitNumber;
+    private String building;
+    private ApartmentLease lease;
+    
+    public void updateUnit(String newUnit) { this.unitNumber = newUnit; }
+    public boolean isLeased() { return lease != null && lease.isActive(); }
+}
+
+class ApartmentLease {
+    private Long leaseId;
+    private Date startDate;
+    private Date endDate;
+    private BigDecimal rent;
+    
+    public void extendLease(Date newEndDate) { this.endDate = newEndDate; }
+    public boolean isActive() { return new Date().before(endDate); }
+}
+
+
+
+25. Device & DeviceWarranty
+class Device {
+    private Long deviceId;
+    private String model;
+    private String serialNumber;
+    private DeviceWarranty warranty;
+    
+    public void updateModel(String newModel) { this.model = newModel; }
+    public boolean isUnderWarranty() { return warranty != null && warranty.isValid(); }
+}
+
+class DeviceWarranty {
+    private Long warrantyId;
+    private Date startDate;
+    private Date endDate;
+    private String terms;
+    
+    public void extendWarranty(Date newEndDate) { this.endDate = newEndDate; }
+    public boolean isValid() { return endDate.after(new Date()); }
+}
+
+26. Flight & FlightSchedule
+class Flight {
+    private Long flightId;
+    private String flightNumber;
+    private String airline;
+    private FlightSchedule schedule;
+    
+    public void updateAirline(String newAirline) { this.airline = newAirline; }
+    public boolean isScheduled() { return schedule != null; }
+}
+
+class FlightSchedule {
+    private Long scheduleId;
+    private Date departureTime;
+    private Date arrivalTime;
+    private String status;
+    
+    public void updateStatus(String newStatus) { this.status = newStatus; }
+    public long getFlightDuration() { return arrivalTime.getTime() - departureTime.getTime(); }
+}
+
+
+
+
+
+27. Hotel & HotelReservation
+class Hotel {
+    private Long hotelId;
+    private String name;
+    private String location;
+    private HotelReservation reservation;
+    
+    public void updateLocation(String newLocation) { this.location = newLocation; }
+    public boolean hasReservation() { return reservation != null; }
+}
+
+class HotelReservation {
+    private Long reservationId;
+    private Date checkIn;
+    private Date checkOut;
+    private String guestName;
+    
+    public void updateCheckIn(Date newCheckIn) { this.checkIn = newCheckIn; }
+    public int getStayDuration() { return (int) ((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24)); }
+}
+
+28. Loan & LoanTerms
+class Loan {
+    private Long loanId;
+    private BigDecimal amount;
+    private String type;
+    private LoanTerms terms;
+    
+    public void updateAmount(BigDecimal newAmount) { this.amount = newAmount; }
+    public boolean hasTerms() { return terms != null; }
+}
+
+class LoanTerms {
+    private Long termsId;
+    private Double interestRate;
+    private int termMonths;
+    private String repaymentSchedule;
+    
+    public void updateInterestRate(Double newRate) { this.interestRate = newRate; }
+    public BigDecimal calculateMonthlyPayment(BigDecimal principal) { 
+        return principal.multiply(BigDecimal.valueOf(interestRate / 12)).divide(BigDecimal.valueOf(termMonths));
+    }
+}
+
+29. Contract & ContractTerms
+class Contract {
+    private Long contractId;
+    private String title;
+    private Date signedDate;
+    private ContractTerms terms;
+    
+    public void updateTitle(String newTitle) { this.title = newTitle; }
+    public boolean isSigned() { return signedDate != null; }
+}
+
+class ContractTerms {
+    private Long termsId;
+    private String conditions;
+    private Date expiryDate;
+    private String penalties;
+    
+    public void updateConditions(String newConditions) { this.conditions = newConditions; }
+    public boolean isExpired() { return expiryDate.before(new Date()); }
+}
+
+30. Course & CourseSchedule
+class Course {
+    private Long courseId;
+    private String courseName;
+    private String instructor;
+    private CourseSchedule schedule;
+    
+    public void updateInstructor(String newInstructor) { this.instructor = newInstructor; }
+    public boolean isScheduled() { return schedule != null; }
+}
+
+class CourseSchedule {
+    private Long scheduleId;
+    private String days;
+    private String time;
+    private String room;
+    
+    public void updateRoom(String newRoom) { this.room = newRoom; }
+    public String getScheduleInfo() { return days + " " + time + " in " + room; }
+}
+
+31. Appointment & AppointmentDetails
+class Appointment {
+    private Long appointmentId;
+    private Date appointmentDate;
+    private String status;
+    private AppointmentDetails details;
+    
+    public void reschedule(Date newDate) { this.appointmentDate = newDate; }
+    public boolean isConfirmed() { return "CONFIRMED".equals(status); }
+}
+
+class AppointmentDetails {
+    private Long detailsId;
+    private String purpose;
+    private String notes;
+    private String location;
+    
+    public void addNote(String note) { this.notes += "; " + note; }
+    public boolean hasLocation() { return location != null && !location.isEmpty(); }
+}
+
+32. Ticket & TicketDetails
+class Ticket {
+    private Long ticketId;
+    private String ticketNumber;
+    private String event;
+    private TicketDetails details;
+    
+    public void updateEvent(String newEvent) { this.event = newEvent; }
+    public boolean hasDetails() { return details != null; }
+}
+
+class TicketDetails {
+    private Long detailsId;
+    private String seatNumber;
+    private BigDecimal price;
+    private String category;
+    
+    public void updateSeat(String newSeat) { this.seatNumber = newSeat; }
+    public boolean isPremium() { return "PREMIUM".equals(category); }
+}
+
+
+
+33. Tax & TaxDocument
+class Tax {
+    private Long taxId;
+    private String taxYear;
+    private String taxpayerId;
+    private TaxDocument document;
+    
+    public void updateYear(String newYear) { this.taxYear = newYear; }
+    public boolean hasDocument() { return document != null; }
+}
+
+class TaxDocument {
+    private Long documentId;
+    private BigDecimal totalIncome;
+    private BigDecimal taxOwed;
+    private String filingStatus;
+    
+    public void updateIncome(BigDecimal newIncome) { this.totalIncome = newIncome; }
+    public BigDecimal getRefundAmount() { return taxOwed.compareTo(BigDecimal.ZERO) < 0 ? taxOwed.negate() : BigDecimal.ZERO; }
+}
+
+One-to-Many Relationships 
+34. Department & Employee
+class Department {
+    private Long deptId;
+    private String name;
+    private String location;
+    private List<Employee> employees;
+    
+    public void addEmployee(Employee emp) { employees.add(emp); }
+    public int getEmployeeCount() { return employees.size(); }
+}
+
+class Employee {
+    private Long empId;
+    private String name;
+    private String position;
+    private Department department;
+    
+    public void updatePosition(String newPosition) { this.position = newPosition; }
+    public String getDepartmentName() { return department != null ? department.getName() : "Unassigned"; }
+}
+
+
+35. Customer & Order
+class Customer {
+    private Long customerId;
+    private String name;
+    private String email;
+    private List<Order> orders;
+    
+    public void placeOrder(Order order) { orders.add(order); }
+    public int getTotalOrders() { return orders.size(); }
+}
+
+class Order {
+    private Long orderId;
+    private Date orderDate;
+    private BigDecimal amount;
+    private Customer customer;
+    
+    public void updateAmount(BigDecimal newAmount) { this.amount = newAmount; }
+    public boolean isRecentOrder() { return orderDate.after(getLastMonthDate()); }
+}
+
+36. Author & Book
+class Author {
+    private Long authorId;
+    private String name;
+    private String biography;
+    private List<Book> books;
+    
+    public void publishBook(Book book) { books.add(book); }
+    public int getPublishedCount() { return books.size(); }
+}
+
+class Book {
+    private Long bookId;
+    private String title;
+    private String genre;
+    private Author author;
+    
+    public void updateGenre(String newGenre) { this.genre = newGenre; }
+    public String getAuthorName() { return author != null ? author.getName() : "Unknown"; }
+}
+
+
+
+37. Category & Product
+class Category {
+    private Long categoryId;
+    private String name;
+    private String description;
+    private List<Product> products;
+    
+    public void addProduct(Product product) { products.add(product); }
+    public boolean hasProducts() { return !products.isEmpty(); }
+}
+
+class Product {
+    private Long productId;
+    private String name;
+    private BigDecimal price;
+    private Category category;
+    
+    public void updatePrice(BigDecimal newPrice) { this.price = newPrice; }
+    public String getCategoryName() { return category != null ? category.getName() : "Uncategorized"; }
+}
+
+38. School & Student
+class School {
+    private Long schoolId;
+    private String name;
+    private String address;
+    private List<Student> students;
+    
+    public void enrollStudent(Student student) { students.add(student); }
+    public int getEnrollmentCount() { return students.size(); }
+}
+
+class Student {
+    private Long studentId;
+    private String name;
+    private String grade;
+    private School school;
+    
+    public void promoteGrade(String newGrade) { this.grade = newGrade; }
+    public String getSchoolName() { return school != null ? school.getName() : "No School"; }
+}
+
+
+
+
+
+39. Library & Book
+class Library {
+    private Long libraryId;
+    private String name;
+    private String location;
+    private List<Book> books;
+    
+    public void addBook(Book book) { books.add(book); }
+    public int getBookCount() { return books.size(); }
+}
+
+class Book {
+    private Long bookId;
+    private String title;
+    private String isbn;
+    private Library library;
+    
+    public void updateTitle(String newTitle) { this.title = newTitle; }
+    public boolean isAvailable() { return library != null; }
+}
+
+40. Hospital & Doctor
+class Hospital {
+    private Long hospitalId;
+    private String name;
+    private String address;
+    private List<Doctor> doctors;
+    
+    public void hireDoctor(Doctor doctor) { doctors.add(doctor); }
+    public int getDoctorCount() { return doctors.size(); }
+}
+
+class Doctor {
+    private Long doctorId;
+    private String name;
+    private String specialization;
+    private Hospital hospital;
+    
+    public void updateSpecialization(String newSpec) { this.specialization = newSpec; }
+    public String getHospitalName() { return hospital != null ? hospital.getName() : "Private Practice"; }
+}
+
+
+41. University & Faculty
+class University {
+    private Long universityId;
+    private String name;
+    private String location;
+    private List<Faculty> faculties;
+    
+    public void addFaculty(Faculty faculty) { faculties.add(faculty); }
+    public int getFacultyCount() { return faculties.size(); }
+}
+
+class Faculty {
+    private Long facultyId;
+    private String name;
+    private String department;
+    private University university;
+    
+    public void changeDepartment(String newDept) { this.department = newDept; }
+    public String getUniversityName() { return university != null ? university.getName() : "Unknown"; }
+}
+
+42. Bank & Account
+class Bank {
+    private Long bankId;
+    private String name;
+    private String routingNumber;
+    private List<Account> accounts;
+    
+    public void openAccount(Account account) { accounts.add(account); }
+    public int getAccountCount() { return accounts.size(); }
+}
+
+class Account {
+    private Long accountId;
+    private String accountNumber;
+    private BigDecimal balance;
+    private Bank bank;
+    
+    public void deposit(BigDecimal amount) { this.balance = this.balance.add(amount); }
+    public String getBankName() { return bank != null ? bank.getName() : "Unknown Bank"; }
+}
+
+
+43. Team & Player
+class Team {
+    private Long teamId;
+    private String name;
+    private String sport;
+    private List<Player> players;
+    
+    public void recruitPlayer(Player player) { players.add(player); }
+    public int getTeamSize() { return players.size(); }
+}
+
+class Player {
+    private Long playerId;
+    private String name;
+    private String position;
+    private Team team;
+    
+    public void changePosition(String newPosition) { this.position = newPosition; }
+    public String getTeamName() { return team != null ? team.getName() : "Free Agent"; }
+}
+
+44. Company & Project
+class Company {
+    private Long companyId;
+    private String name;
+    private String industry;
+    private List<Project> projects;
+    
+    public void startProject(Project project) { projects.add(project); }
+    public int getActiveProjects() { return (int) projects.stream().filter(p -> p.isActive()).count(); }
+}
+
+class Project {
+    private Long projectId;
+    private String name;
+    private String status;
+    private Company company;
+    
+    public void updateStatus(String newStatus) { this.status = newStatus; }
+    public boolean isActive() { return "ACTIVE".equals(status); }
+}
+
+
+
