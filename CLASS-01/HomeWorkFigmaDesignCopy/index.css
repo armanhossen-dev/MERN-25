@@ -318,7 +318,7 @@ body{
 
 .h333{
     /* background-color: #e02424; */
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 500;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -526,33 +526,109 @@ body{
 /* ################################# */
 /* homePage2 */
 .homePage2{
-    margin-top: 50px;
     display: flex;
     flex-direction: column;
-
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
     width: 100%;
 }
 
+
 .minicards{    
     width: 80%;
-    /* height: 370px; */
-    /* padding: 30px; */
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: auto;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    /* background-color: #e74c3c; */
+    align-items: center;
+    justify-content: center  ;
     gap: 20px;
-    background-color: #e74c3c;
 }
 
 .mbox{
     position: relative;
-    overflow: hidden;
-    width: 330px;
-    height: 370px;
+    overflow-x: hidden;
+    width: 260px;
+    height: 325px;
     background-color: #38ade8;
+    margin: auto;
+    border-radius: 8px;
 }
 
-/* 
-    
-*/
+.mbtext{
+    /* bottom: 0; */
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    padding: 20px;
+    /* padding-left: 0; */
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    backdrop-filter: blur(5px);
+    /* text-align: center; */
+    top: auto;
+    bottom: 0px;
+}
+/* .mbox:hover{ */
+/* .mbox{
+    box-shadow: 0px 5px 28px black;
+} */
+
+.mb1,.mb2,.mb3,.mb4,.mb5{
+    background-size: cover;
+    background-repeat: none;
+    aspect-ratio: 4/5;
+}
+
+.mb1{
+    background-image: url('imgs/b1.jpg');
+}
+.mb2{
+    background-image: url('imgs/b2.jpg');
+}
+.mb3{
+    background-image: url('imgs/b3.jpg');
+}
+.mb4{
+    background-image: url('imgs/b4.jpg');
+}
+.mb5{
+    background-image: url('imgs/b5.jpg');
+}
+
+@media screen and (max-width: 1860px) {    
+    .homePage2{
+        margin-top: 80px;
+    }
+    .mbox{
+        margin: auto;
+    }
+}
+@media screen and (max-width: 1280px) {    
+    .homePage2{
+        margin-top: 750px;
+    }
+    .mbox{
+        margin: auto;
+    }
+}
+@media screen and (max-width: 1080px) {    
+    .homePage2{
+        margin-top: 600px;
+    }
+    .mbox{
+        margin: auto;
+    }
+
+}
+@media screen and (max-width: 905px) {    
+    .homePage2{
+        margin-top: 440px;
+    }
+    .mbox{
+        margin: auto;
+    }
+}
