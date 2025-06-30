@@ -632,3 +632,30 @@ body{
         margin: auto;
     }
 }
+
+
+/*page 3*/
+.homepage3{
+    width: 80%;
+    margin: 120px auto 50px;
+    /* padding: 30px; */
+    height: 500px;
+    display: flex;
+    gap: 30px;
+}
+
+.boxleft{
+    width: 40vw;
+    height: 500px;
+    background-color: #32d255;
+}
+
+.boxrightphoto{
+    background-image: url('imgs/page3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    width: 60vw;
+    height: 500px;
+    /* background-color: #38ade8; */
+}
