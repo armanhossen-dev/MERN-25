@@ -102,7 +102,7 @@ body{
 }
 
 /* making it responvie for phone or smaller display  */ 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1380px){
     .menuUL a:hover{
         background-color: rgba(0, 0, 0, 0.665);
         /* color: white; */
@@ -209,6 +209,12 @@ body{
     margin: auto;
     justify-content: space-between;
     /* background-color:yellow; */
+}
+
+@media screen and (max-width: 1380px) {
+    .homepage{
+        margin-bottom: 210px;
+    }  
 }
 
 .leftSideHome{
@@ -572,10 +578,22 @@ body{
     top: auto;
     bottom: 0px;
 }
-/* .mbox:hover{ */
-/* .mbox{
-    box-shadow: 0px 5px 28px black;
-} */
+
+.mb1:hover{
+    box-shadow: 0px 2px 16px rgb(142, 173, 173);
+}
+.mb2:hover{
+    box-shadow: 0px 2px 16px rgb(43, 63, 76);
+}
+.mb3:hover{
+    box-shadow: 0px 2px 16px rgb(114, 99, 92);
+}
+.mb4:hover{
+    box-shadow: 0px 2px 16px rgb(150, 170, 150);
+}
+.mb5:hover{
+    box-shadow: 0px 2px 16px rgb(0, 25, 82);
+}
 
 .mb1,.mb2,.mb3,.mb4,.mb5{
     background-size: cover;
@@ -637,25 +655,180 @@ body{
 /*page 3*/
 .homepage3{
     width: 80%;
-    margin: 120px auto 50px;
+    margin: 120px auto;
     /* padding: 30px; */
-    height: 500px;
+    /* height: 500px; */
     display: flex;
-    gap: 30px;
+    gap: 20px;
+}
+
+@media screen and (max-width: 1680px){
+  .homepage3{
+    flex-direction: column;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  .boxleft,
+  .boxrightphoto{
+        top: 40px;
+        /* margin: 0; */
+        padding: 0;
+        min-width: 625px;
+    }
 }
 
 .boxleft{
     width: 40vw;
-    height: 500px;
-    background-color: #32d255;
+    height: 650px;
+    border-radius: 8px;
+    background-color: #ffffff;
 }
 
 .boxrightphoto{
     background-image: url('imgs/page3.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 8px;
 
     width: 60vw;
-    height: 500px;
+    height: 650px;
+    
     /* background-color: #38ade8; */
+    margin-bottom: 60px;
+}
+
+.insidetext{
+    /* background-color: #e74d3c48; */
+    padding: 40px ;
+}
+
+.stext{
+    font-size: 14px;
+}
+
+.editor{
+    font-size: 2em;
+    text-transform: uppercase;
+    margin-bottom: 100px;
+}
+
+.opacitykom{
+    opacity: .5;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sub{
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;
+    color: rgb(141, 141, 141);
+    padding-bottom: 10px;
+}
+
+
+.titletext{
+    font-size: 22px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+
+ /* home page 4  */
+.homepage4{
+    margin: auto;
+    width: 1600px;
+    height: 850px;
+    background-color: #f08f64;
+    padding: 0px;
+    margin-bottom: 50px;
+    align-content: center;
+    display: flex;
+}
+
+.content4{
+    width: 60%;
+    /* background-color: rgb(255, 1, 242); */
+    height: 750px;
+    
+    display: flex;
+    /* flex-direction: column; */
+}
+
+
+.latest{
+    /* width: 100%; */
+    font-size: 45px;
+    text-transform: uppercase;
+    /* display: f ; */
+    padding: 30px;
+    /* background-color: blue; */
+}
+
+.hp4right{
+    /* margin-top: 125px; */
+    width: 640px;
+    height: 100%;
+    background-color: #df47b9;    
+}
+.page2photoleft{
+    display: flex;
+}
+
+.imgbox{
+    position: relative;
+    padding: 8px;
+    /* display: ; */
+    left: 25px;
+}
+
+.imgbox img{
+    width: 430px;
+    height: 470px;
+    aspect-ratio: 4/3;
+    border-radius: 10px;
+}
+
+.smlSubDate{
+    font-size: 18px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.phototextHP4{
+    width: 440px;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+
+.boxwithphot{
+    width: 100%;
+    height: 400px;
+}
+.boxwithphot img{
+    width: 240px;
+    height: 175px;
+    aspect-ratio: 5/4;
+    border-radius: 8px;
+}
+
+.right4{
+    display: flex;
+    flex-direction: column;
+}
+
+.next_rigth4{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: right;
+    padding: 45px;
+}
+
+.RIGHTAROOW{
+    font-size: 30px;
+    font-weight: 600;
 }
