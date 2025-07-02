@@ -735,26 +735,60 @@ body{
     padding-bottom: 10px;
 }
 
-
  /* home page 4  */
-.homepage4{
-    margin: auto;
-    width: 1600px;
-    height: 850px;
-    background-color: #f08f64;
-    padding: 0px;
+ .homepage4{
+     background-color: #f08f64; 
+     padding: 0px;
+     padding-left: 140px;  
+     padding-right: 140px; 
+ }
+    
+@media screen and (max-width: 1600px) {
+    .homepage4{
+        /* margin-bottom: 0px; */
+    padding-bottom: 620px;
+    }
+    .homepage4inside, 
+    .homepage4{
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        }
+    .hp4right{
+        /* width: 1000px; */
+        margin: auto;
+    }
+    .hp4left{
+        margin: auto;
+        padding: 0;
+    }
+    .right4{
+        margin: auto;
+    }
+    .phototextHP4{
+        width: 840px;
+    }
+}
+
+.homepage4inside{
+    /* margin: auto; */
+    /* width: 100px; */
+    height: 830x;
+    /* padding: 0px; */
     margin-bottom: 50px;
     align-content: center;
     display: flex;
 }
 
 .content4{
-    width: 60%;
-    /* background-color: rgb(255, 1, 242); */
-    height: 750px;
-    
+    width: 950px;
+    background-color: rgb(255, 1, 242);
+    height: 750px;    
     display: flex;
+    gap: 30px;
+
     /* flex-direction: column; */
+
 }
 
 
@@ -767,11 +801,11 @@ body{
     /* background-color: blue; */
 }
 
+
 .hp4right{
-    /* margin-top: 125px; */
     width: 640px;
-    height: 100%;
-    background-color: #df47b9;    
+    /* height: 100%; */
+    /* background-color: #df47b9;     */
 }
 .page2photoleft{
     display: flex;
@@ -782,6 +816,18 @@ body{
     padding: 8px;
     /* display: ; */
     left: 25px;
+}
+
+@media screen and (max-width: 980px) {
+    .page2photoleft{
+    display: flex;
+    flex-direction: column;
+    }
+    .content4{
+        margin: auto;
+        flex-direction: column;
+        /* padding: 0; */
+    }
 }
 
 .imgbox img{
@@ -806,13 +852,21 @@ body{
 
 
 .boxwithphot{
+    display: flex;
     width: 100%;
-    height: 400px;
+    /* background-color: #32d255; */
+    margin: auto;
 }
+
+
+.bwp{
+    margin-bottom: 70px;
+}
+
 .boxwithphot img{
-    width: 240px;
-    height: 175px;
-    aspect-ratio: 5/4;
+    width: 210px;
+    height: 150px;
+    /* aspect-ratio: 5/4; */
     border-radius: 8px;
 }
 
@@ -832,3 +886,25 @@ body{
     font-size: 30px;
     font-weight: 600;
 }
+
+.txtsHP4{
+    padding: 20px;
+    margin: auto;
+}
+
+.dateHP4{
+    /* padding: 20px; */
+    text-transform: uppercase;
+    padding-left: 10px;
+    
+}
+
+.sidetextHP4{
+    padding-left: 10px;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+/* .hp4rightP{
+    
+} */
