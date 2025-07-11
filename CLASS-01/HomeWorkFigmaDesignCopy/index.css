@@ -40,12 +40,11 @@ body{
     text-decoration: none;
     font-weight: 500;
     text-transform: uppercase;
-    transition: all .35s ease;
+    transition: all .35s ease-in-out;
 }
 
 .menuUL a:hover{
-    color: #f8ab8d;
-    scale: 1.056;    
+    color: #e0784f;
 }
 
 .search{
@@ -103,8 +102,11 @@ body{
 
 /* making it responvie for phone or smaller display  */ 
 @media screen and (max-width: 1380px){
+    .menuUL a{
+        width: 40em;        
+    }
     .menuUL a:hover{
-        background-color: rgba(0, 0, 0, 0.665);
+    background-color: rgba(0, 0, 0, 0.5);
         /* color: white; */
     }
     .menuUL {
@@ -114,7 +116,7 @@ body{
         position: fixed;
         top: 0;
         right: -100%;
-        width: 40vw;
+        width: 30em;
         height: 100%;
         z-index: 100;
         box-shadow: -5px 0 5px rgba(0,0,0,0.25);
@@ -128,7 +130,7 @@ body{
     .menuUL a {
         box-sizing: border-box;
         height: auto;
-        width: 70%;
+        /* width: 70%; */
         padding: 20px 20px;
         font-size: 18px;
         justify-content: flex-start;
@@ -748,19 +750,17 @@ body{
       padding: 0px;
       }
       .page2photoleft{
-        height: 1200px;
-        /* max-resolution; */
+        height: auto;
       }
 }
 
 @media screen and (max-width: 960px) {
      .homepage4{
-      background-color: #01e701; 
+      background-color: #00ff00; 
       padding: 0px;
       }
       .page2photoleft{
-        height: 1200px;
-        /* max-resolution; */
+        height: auto;
       }
 }
 
@@ -795,7 +795,7 @@ body{
 .homepage4inside{
     /* margin: auto; */
     /* width: 100px; */
-    height: 830x;
+    height: 830px;
     /* padding: 0px; */
     margin-bottom: 50px;
     /* align-content: center; */
@@ -804,7 +804,7 @@ body{
 
 .content4{
     width: 950px;
-    background-color: rgb(255, 1, 242);
+    /* background-color: rgb(255, 255, 255); */
     height: 750px;    
     /* display: flex; */
     margin: auto;
@@ -844,15 +844,16 @@ body{
     .page2photoleft{
     display: flex;
     flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
     }
     .content4{
         margin: auto;
         flex-direction: column;
         margin-bottom: 550px;
     }
-    .hp4left{
-        /* padding: auto; */
-    }
+    
+    
 }
 
 .imgbox img{
